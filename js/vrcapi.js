@@ -4,9 +4,9 @@ var vrcApi = {};
 
 (function(api){
 
-    // api.apiURL = 'http://localhost:3000/api/';
+    api.apiURL = 'http://localhost:3000/api/';
     // api.apiURL = 'http://192.168.100.2:3000/api/';
-    api.apiURL = 'https://vrcnoti.herokuapp.com/api/';
+    // api.apiURL = 'https://vrcnoti.herokuapp.com/api/';
     api.authorizated = false;
     api.authorization = '';
     api.userData = {};
