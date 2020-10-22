@@ -19,6 +19,10 @@ var vrcWS = vrcWS || {};
 
         ws.socket.onclose = function() {
             ws.open = false;
+            disconnect();
+            if(ws.retryConnection) setTimeout(function() {
+                btnConnect.click();
+            }, 2000);
             console.log('Web Socket cerrado');
         };
 

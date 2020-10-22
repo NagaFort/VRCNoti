@@ -23,18 +23,24 @@ btnConnect.click(function () {
                 btnConnect.addClass('d-none');
                 btnDisconnect.removeClass('d-none');
                 vrcWS.init();
+                vrcWS.retryConnection = true;
             }
         });
 });
 
 btnDisconnect.click(function () {
-    vrcApi.logOut();
-    vrcWS.close();
+    vrcWS.retryConnection = false;
+    disconnect();
+});
+
+function disconnect() {
+    if(vrcApi.authorizated) vrcApi.logOut();
+    if(vrcWS.open) vrcWS.close();
     inputUsername.removeAttr('readOnly', true);
     inputPassword.removeAttr('readOnly', true);
     btnConnect.removeClass('d-none');
     btnDisconnect.addClass('d-none');
-});
+}
 
 
 function notificationTemplate(info) {
